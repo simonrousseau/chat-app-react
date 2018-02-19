@@ -15,7 +15,7 @@ const MessagesList = ({ messages }) => (
   </section>
 )
 
-MessagesList.PropTypes = {
+MessagesList.propTypes = {
   messages: PropTypes.arrayOf(
     PropTypes.shape({
       id: PropTypes.number.isRequired,
