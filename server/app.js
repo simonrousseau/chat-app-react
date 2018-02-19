@@ -1,6 +1,6 @@
 const WebSocket = require('ws')
 
-const WebSocketServer = new WebSocket.Server({ port: 8989})
+const WebSocketServer = new WebSocket.Server({ port: 3030})
 
 const users = []
 
