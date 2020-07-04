@@ -1,25 +1,25 @@
-const WebSocket = require('ws')
+const WebSocket = require('ws');
 
-const WebSocketServer = new WebSocket.Server({ port: 3030})
+const wss = new WebSocket.Server({ port: 8989 })
 
 const users = []
 
 const broadcast = (data, ws) => {
-  WebSocketServer.clients.forEach((client) => {
+  wss.clients.forEach((client) => {
     if (client.readyState === WebSocket.OPEN && client !== ws) {
       client.send(JSON.stringify(data))
     }
   })
 }
 
-WebSocketServer.on('connection', (ws) => {
+wss.on('connection', (ws) => {
   let index
   ws.on('message', (message) => {
     const data = JSON.parse(message)
     switch (data.type) {
       case 'ADD_USER': {
         index = users.length
-        users.push({name: data.name, id: index + 1})
+        users.push({ name: data.name, id: index + 1 })
         ws.send(JSON.stringify({
           type: 'USERS_LIST',
           users
@@ -42,8 +42,8 @@ WebSocketServer.on('connection', (ws) => {
     }
   })
 
-  ws.on('closed', () => {
-    users.splice(index,1)
+  ws.on('close', () => {
+    users.splice(index, 1)
     broadcast({
       type: 'USERS_LIST',
       users
