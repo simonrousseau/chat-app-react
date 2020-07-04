@@ -17,12 +17,12 @@ const AddMessage = (props) => {
 				ref={(node) => {
 					input = node
 				}}
-				/>
+			/>
 		</section>
 	)
 }
 
-AddMessage.propTypes = {
+AddMessage.PropTypes = {
 	dispatch: PropTypes.func.isRequired
 }
 

@@ -1,4 +1,4 @@
-import {combineReducers} from "redux"
+import { combineReducers } from "redux"
 import messages from "./messages"
 import users from "./users"
 
