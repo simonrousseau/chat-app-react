@@ -7,7 +7,7 @@
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
     "react-redux": "^5.1.2",
-    "react-scripts": "1.1.0",
+    "react-scripts": "5.0.1",
     "redux": "^3.7.2",
     "redux-saga": "^0.16.2",
     "ws": "^4.1.0"
